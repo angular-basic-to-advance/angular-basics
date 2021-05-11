@@ -66,6 +66,7 @@
     <h3>{{serverName2}}</h3> -->
 
     <!-- using *ngIf -->
+    <!-- ng for and ngif are structi=ural attribute bcz they add or remove element to DOM -->
 
     <h2>-------------------</h2>
 
@@ -86,7 +87,9 @@
 
 
     <!-- using ngStyle --> <!-- using ngClass -->
-
+    <!-- ngStyle and ngClass are attribute directive as they only change the object not add or remove -->
+<!-- ngClass takes a java script object in which the key is : the class name and the value is  -->
+<!-- 'a consdition ' -->
     <h2 [ngStyle]="{'background-color': getColor()}" 
         [ngClass]="{ online : serverStatus === 'online',
                      offline : serverStatus === 'offline'
