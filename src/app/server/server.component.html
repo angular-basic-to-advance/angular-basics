@@ -1,0 +1,127 @@
+<div class="container">
+    <!-- TODO: -->
+    <!-- From typeScript to Html -->
+
+    <!-- string interpolatioin -->
+    <h1>server component is running</h1>
+    <h1>
+        {{serverName}} {{value}} {{getServerName()}} {{values[2]}}
+    </h1>
+
+    <!-- property binding  -->
+    <button class="btn btn-info" [disabled]="getButtonStatus()">
+        {{getButtonStatus()}} Button
+    </button>
+    
+    <!-- TODO: -->
+
+    <!-- form html side to typeScript -->
+
+    <!-- event binding -->
+
+    <!-- 1.Click Event -->
+    <button (click)="onButtonClick()">Click Me</button>
+    <p>{{someText}}</p>
+
+    <!-- 2.input Event -->
+
+    <label>Name</label>
+    <input type="text" class="form-control" (input)="onButtonEvent($event)">
+    <h2>{{inputEvent}}</h2>
+
+    <!-- 3.KeyUp Event -->
+    <input type="text" #box class="form-control" (keyup)="onKeyUp(box.value)">
+    <h2>{{keyupVar}}</h2>
+
+    <!-- 4.KeyUp.enter Event -->
+    <input type="text" #box1 class="form-control" (keyup.enter)="onKeyUp(box1.value)">
+    <h2>{{keyupVar}}</h2>
+
+
+    <!-- 5.KeyUp.space Event -->
+    <input type="text" #box2 class="form-control" (keyup.space)="onKeyUp(box2.value)">
+    <h2>{{keyupVar}}</h2>
+
+
+
+    <!-- TODO: -->
+    <!-- Two way Binding -->
+
+    <input type="text" class="form-control" [(ngModel)]="inputEvent">
+    <h2>{{inputEvent}}</h2>
+
+    <br>
+    <hr>
+    --------------------------------------------------------=---------------------------------------------------------
+    --------------------------------------------------------------------------------------------
+    <hr>
+    <!-- An Example with all the Binding property -->
+
+    <!-- <label>Server Name</label>
+    <input #box4 type="text" class="form-control" (keyup)="onUpdateServerName(box4.value)" [(ngModel)]="inputEvent">
+
+    <h3>Server Created ! Name : {{serverName1}}</h3>
+
+    <button [disabled]="check()" class="btn btn-primary" (click)="onCreateServer()">Add Server</button>
+    <h3>{{serverName2}}</h3> -->
+
+    <!-- using *ngIf -->
+
+    <h2>-------------------</h2>
+
+    <button class="btn btn-success" (click)="onCreateServer()">Click</button>
+
+    <h3 *ngIf="serverstatus ; else elseBlock">This statement will show</h3>
+
+    <ng-template #elseBlock>
+        <h3>This statement will show if condition is false</h3>
+    </ng-template>
+
+    <h2>-------------------</h2>
+    <!-- using *ngFor  -->
+
+
+    <h2 *ngFor="let i of numArray">{{i}}</h2>
+    <h2 *ngFor="let j of objVar">{{j.name}} and qunaity = {{j.quantity}}</h2>
+
+
+    <!-- using ngStyle --> <!-- using ngClass -->
+
+    <h2 [ngStyle]="{'background-color': getColor()}" 
+        [ngClass]="{ online : serverStatus === 'online',
+                     offline : serverStatus === 'offline'
+                   }">
+                   server status :{{serverStatus}}
+    </h2>
+
+
+    <!-- *ngFor again (NOT WORKING WHAT WANTED TO BE DONE)-->
+
+    <label>Server Name</label>
+    <input #box4 type="text" class="form-control">
+
+    <button class="btn btn-primary" (click)="onUpdateServerName(box4.value)">Add Server</button>
+    <h3 *ngFor="let i of log">{{serverName1}}</h3>
+
+
+
+    <!-- ASSIGNMENT -->
+    <!-- way of toggling -->
+
+    <br>
+    <br>
+    <br>
+    <!-- <button class="btn btn-primary" (click)="showSecret=!showSecret">Display Details</button> -->
+
+
+    <button class="btn btn-primary" (click)="onClick()">Display Details</button>
+
+
+    <p *ngIf="showSecret">My password = 'goToHell'</p>
+
+
+    <div *ngFor = "let i of log" 
+         [ngStyle] = "{backgroundColor: i > 5 ? 'blue' : 'white'}"
+         [ngClass] = "{'white-text': i >= 5 }"
+    >{{i}}</div>
+</div>

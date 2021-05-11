@@ -1,0 +1,14 @@
+h1{
+    color: coral;
+}
+
+.online{
+    color: cornsilk;
+}
+.offline{
+    color: rgb(6, 247, 38);
+}
+
+.white-text{
+    color: white;
+}
