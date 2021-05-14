@@ -6,9 +6,9 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./cockpit.component.css']
 })
 export class CockpitComponent implements OnInit {
-  @Output('') serverCreated = new EventEmitter<{serverName:string,serverContent:string}>();
+  @Output() serverCreated = new EventEmitter<{serverName:string,serverContent:string}>();
   @Output('bpCreated') blueprintCreated=  new EventEmitter<{serverName:string,serverContent:string}>();
-  newServerName = '';
+  // newServerName = ''; not required now as we have paased the local refernce
   newServerContent = '';
 
   constructor() { }
@@ -16,12 +16,18 @@ export class CockpitComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onAddServer() {
-    this.serverCreated.emit({serverName:this.newServerName,serverContent:this.newServerContent});
+  onAddServer(inputServerName : HTMLInputElement) {
+    this.serverCreated.emit({
+      serverName:inputServerName.value,
+      serverContent:this.newServerContent
+    });
   }
 
-  onAddBlueprint() {
-    this.blueprintCreated.emit({serverName:this.newServerName,serverContent:this.newServerContent});
+  onAddBlueprint(inputServerName : HTMLInputElement) {
+    this.blueprintCreated.emit({
+      serverName:inputServerName.value,
+      serverContent:this.newServerContent
+    });
   }
 
 

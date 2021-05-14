@@ -1,10 +1,12 @@
 import { from } from "rxjs";
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
     selector: 'app-server',
     templateUrl: './server.component.html',
-    styleUrls: ['./server.component.css']
+    styleUrls: ['./server.component.css'],
+    encapsulation:ViewEncapsulation.None // this will make the css properties of this componenet
+    // global i.e the css properties will be added to all the componets.
 })
 export class ServerComponent {
     serverName: string = "bablu";
